@@ -18,7 +18,7 @@ import findOrCreate from "mongoose-findorcreate";
 //import encrypt from "mongoose-encryption";
 
 const app = express();
-
+const port = process.env.PORT || 3030;
 app.use(express.static("public"));
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({
@@ -246,6 +246,6 @@ app.post("/login", function(req, res){
     // findUser();
 });
 
-app.listen(3000, function() {
+app.listen(port, function() {
     console.log("Server started on port 3000.");
 });
