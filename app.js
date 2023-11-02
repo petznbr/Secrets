@@ -131,7 +131,7 @@ app.get("/secrets", async function(req, res){
     const foundUsers = await User.find({"secret": {$ne:null}});
     if (foundUsers) {
       console.log(foundUsers);
-      res.render("secrets", {usersWithSecrets: foundUsers});
+      res.render("secrets", {usersWithSecrets: foundUsers});res.renderr
     }
   } catch(err) {
     console.log(err);
@@ -153,7 +153,7 @@ app.post("/submit", async function(req, res){
   if (foundUser){
     foundUser.secret = submittedSecret;
     foundUser.save();
-    res.render("secrets");
+    res.redirect("/secrets");
   }
   } catch(err) {
     console.log(err);
